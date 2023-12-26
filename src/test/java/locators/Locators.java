@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Locators {
     WebDriver driver;
@@ -84,4 +86,6 @@ public class Locators {
 
         driver.quit();
     }
+
+
 }
