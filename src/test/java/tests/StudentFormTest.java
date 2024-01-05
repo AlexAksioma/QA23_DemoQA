@@ -18,8 +18,8 @@ public class StudentFormTest extends TestBase implements HelperStudent {
     public void studentFormPositiveTest(){
         //System.out.println("start");
         StudentDTO student = new StudentDTO("Frodo", "Baggins", "frodobaggins@mail.com",
-                "Female", "1234567890", "02 Jan 2000", "Maths,English",
-                "Sports,Music", "Street 2 house 1", "NCR", "Delhi");
+                "F++++", "1234567890", "02 Jan 2000", "Maths,English",
+                "Sports", "Street 2 house 1", "NCR", "Delhi");
         fillStudentForm(student);
     }
 }

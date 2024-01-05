@@ -11,6 +11,14 @@ public interface HelperBase extends AppManager{
         driver.findElement(locator).click();
     }
 
+    default void pause(int time){
+        try {
+            Thread.sleep(time* 1000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     default void typeBase(By locator, String text){
         WebElement element = driver.findElement(locator);
         element.click();
@@ -26,5 +34,9 @@ public interface HelperBase extends AppManager{
     default void hideFooter(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.querySelector('footer').style.display='none'");
+    }
+    default void hideDiv(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('#fixedban').style.display='none'");
     }
 }
