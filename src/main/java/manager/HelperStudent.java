@@ -29,6 +29,14 @@ public interface HelperStudent extends HelperBase {
 
     By textAreaCurrentAddress = By.id("currentAddress");
 
+    //===============================================
+    By inputSelectState = By.id("react-select-3-input");
+    By inputSelectCity = By.id("react-select-4-input");
+
+    By buttonSubmit = By.id("submit");
+
+    By textThanksFor = By.id("example-modal-sizes-title-lg");
+
     default void selectPracticeForm() {
         hideFooter();
         hideDiv();
@@ -50,7 +58,21 @@ public interface HelperStudent extends HelperBase {
         typeSubjects(inputSubjects, student.getSubjects());
         selectHobbies(student.getHobbies());
         typeBase(textAreaCurrentAddress, student.getCurrentAddress());
+        //=================================================
+        //typeBase(inputSelectState, student.getState());
+        typeState(inputSelectState, student.getState());
+        typeCity(inputSelectCity, student.getCity());
 
+    }
+
+    default void typeState(By inputSelectState, String state) {
+        driver.findElement(inputSelectState).sendKeys(state);
+        driver.findElement(inputSelectState).sendKeys(Keys.ENTER);
+    }
+
+    default void typeCity(By inputSelectCity, String city) {
+        driver.findElement(inputSelectCity).sendKeys(city);
+        //driver.findElement(inputSelectState).sendKeys(Keys.ENTER);
     }
 
     default void selectHobbies(String hobbies) {
@@ -98,6 +120,13 @@ public interface HelperStudent extends HelperBase {
         } else {
             clickBase(By.cssSelector("label[for='gender-radio-3']"));
         }
+    }
+
+    default void clickButtonSubmit() {
+        clickBase(buttonSubmit);
+    }
+    default boolean isElementPresent_textThanksFor(){
+        return isElementPresent(buttonSubmit);
     }
 
 }

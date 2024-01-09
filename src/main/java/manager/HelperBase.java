@@ -11,6 +11,11 @@ public interface HelperBase extends AppManager{
         driver.findElement(locator).click();
     }
 
+    default boolean isElementPresent(By locator){
+        //return driver.findElements(locator).size()>0;
+        return !driver.findElements(locator).isEmpty();
+    }
+
     default void pause(int time){
         try {
             Thread.sleep(time* 1000L);
